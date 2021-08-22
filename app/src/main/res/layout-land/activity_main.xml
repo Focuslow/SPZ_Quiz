@@ -8,14 +8,17 @@
 
     <TextView
         android:id="@+id/gameTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
         android:text="SPZ Quiz"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_horizontal"
+        tools:ignore="HardcodedText" />
 
     <View
         android:id="@+id/divider"
@@ -26,78 +29,93 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gameTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/gameTitle"
+        app:layout_constraintBottom_toTopOf="@+id/btnResume"/>
 
     <Button
         android:id="@+id/btnResume"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="128dp"
+        android:layout_marginEnd="256dp"
+        android:layout_marginRight="256dp"
         android:text="Resume"
+        app:layout_constraintBottom_toTopOf="@+id/btnNewGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider" />
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnNewGame"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="128dp"
+        android:layout_marginEnd="256dp"
+        android:layout_marginRight="256dp"
         android:text="New Game"
+        app:layout_constraintBottom_toTopOf="@+id/btnStat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnResume" />
+        app:layout_constraintTop_toBottomOf="@+id/btnResume"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnStat"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="128dp"
+        android:layout_marginEnd="256dp"
+        android:layout_marginRight="256dp"
         android:text="Stats"
+        app:layout_constraintBottom_toTopOf="@+id/btnSetting"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnNewGame" />
+        app:layout_constraintTop_toBottomOf="@+id/btnNewGame"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnSetting"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginLeft="128dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="256dp"
+        android:layout_marginLeft="256dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginRight="128dp"
+        android:layout_marginEnd="256dp"
+        android:layout_marginRight="256dp"
         android:text="Settings"
+        app:layout_constraintBottom_toTopOf="@id/btnAbout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStat" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStat"
+        tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnAbout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="320dp"
+        android:layout_marginLeft="320dp"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="320dp"
+        android:layout_marginRight="320dp"
+        android:layout_marginBottom="12dp"
         android:text="About"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSetting" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSetting"
+        tools:ignore="HardcodedText" />
 </androidx.constraintlayout.widget.ConstraintLayout>

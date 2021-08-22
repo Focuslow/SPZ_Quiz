@@ -23,7 +23,7 @@ class Stat : AppCompatActivity() {
         }
 
 
-        val txtViews = listOf("currectGameCity","currectGameSPZ","totalWriteCity","totalWriteSPZ",
+        val txtViews = listOf("currentGameCity","currentGameSPZ","totalWriteCity","totalWriteSPZ",
         "totalPickCity","totalPickSPZ")
 
         val statValues = mutableListOf<List<Int>>()
@@ -37,15 +37,15 @@ class Stat : AppCompatActivity() {
         }
 
         val views = mutableListOf<TextView>()
-        views.add(findViewById<TextView>(R.id.currectGameCity))
-        views.add(findViewById<TextView>(R.id.currectGameSPZ))
+        views.add(findViewById<TextView>(R.id.currentGameCity))
+        views.add(findViewById<TextView>(R.id.currentGameSPZ))
         views.add(findViewById<TextView>(R.id.totalWriteCity))
         views.add(findViewById<TextView>(R.id.totalWriteSPZ))
         views.add(findViewById<TextView>(R.id.totalPickCity))
         views.add(findViewById<TextView>(R.id.totalPickSPZ))
 
         for (i in 0 until statValues.size){
-            setTextToView(views[i],statValues[i][0], statValues[i][1])
+            setTextToView(views[i],statValues[i][0], statValues[i][1]+statValues[i][0])
         }
 
 

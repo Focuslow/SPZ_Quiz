@@ -10,6 +10,7 @@ import androidx.preference.PreferenceManager
 import android.widget.Toast
 import android.content.res.Resources
 import androidx.appcompat.app.AppCompatDelegate.*
+import androidx.core.view.isVisible
 
 data class Settings(val isPicChecked: Boolean, val isCityChecked: Boolean,
                     val isNightTheme: Boolean,val isDarkChecked: Boolean)
@@ -45,6 +46,8 @@ class Setting : AppCompatActivity() {
             return Settings(isPicChecked, isCityChecked, isNightTheme, isDarkChecked)
         }
 
+
+
         val settings = getSettings()
 
         val preferences = PreferenceManager.getDefaultSharedPreferences(this)
@@ -58,6 +61,7 @@ class Setting : AppCompatActivity() {
         switchPic.isChecked = isPicChecked
         switchCityName.isChecked = isCityChecked
         switchDark.isChecked = isDarkChecked
+        switchDark.isVisible = !isNightTheme
 
 
         switchPic?.setOnCheckedChangeListener { _, isChecked ->

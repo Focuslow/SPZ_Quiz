@@ -1,5 +1,6 @@
 package com.example.spzquiz
 
+import android.app.Dialog
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
@@ -55,8 +56,8 @@ class MainMenu : AppCompatActivity() {
         }
 
         btnNewGame.setOnClickListener {
-            val intent = Intent(this, Game::class.java)
-            startActivity(intent)
+            val dialog = DialogWindowFragment()
+            dialog.show(supportFragmentManager, "customDialog")
         }
 
         btnStat.setOnClickListener {
