@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate.*
 import androidx.core.view.isVisible
 
 data class Settings(val isPicChecked: Boolean, val isCityChecked: Boolean,
-                    val isNightTheme: Boolean,val isDarkChecked: Boolean)
+                    val isNightTheme: Boolean,val isDarkChecked: Boolean, val isWriteInChecked: Boolean)
 
 class Setting : AppCompatActivity() {
     @SuppressLint("UseSwitchCompatOrMaterialCode", "CommitPrefEdits")
@@ -24,12 +24,21 @@ class Setting : AppCompatActivity() {
         val btnSave = findViewById<Button>(R.id.btnSave)
         val switchPic = findViewById<Switch>(R.id.switchPic)
         val switchCityName = findViewById<Switch>(R.id.switchCityName)
+
+        //hidden for now
+        val switchWriteIn = findViewById<Switch>(R.id.switchWriteIn)
+        switchWriteIn.isVisible = false
+
+        //hidden for now
+        switchCityName.isVisible = false
+
         val switchDark = findViewById<Switch>(R.id.switchDark)
 
         fun getSettings(): Settings {
             val settings = PreferenceManager.getDefaultSharedPreferences(this)
             val isPicChecked = settings.getBoolean("switchPic", true)
             val isCityChecked = settings.getBoolean("switchCityName", false)
+            val isWriteInChecked = settings.getBoolean("switchWriteIn", false)
 
             fun isUsingNightModeResources(): Boolean {
                 return when (Resources.getSystem().configuration.uiMode and
@@ -43,7 +52,7 @@ class Setting : AppCompatActivity() {
             }
             val isNightTheme = isUsingNightModeResources()
             val isDarkChecked = settings.getBoolean("darkChecked", isNightTheme)
-            return Settings(isPicChecked, isCityChecked, isNightTheme, isDarkChecked)
+            return Settings(isPicChecked, isCityChecked, isNightTheme, isDarkChecked, isWriteInChecked)
         }
 
 
@@ -57,6 +66,7 @@ class Setting : AppCompatActivity() {
         var isCityChecked = settings.isCityChecked
         var isDarkChecked = settings.isDarkChecked
         val isNightTheme = settings.isNightTheme
+        var isWriteInChecked = settings.isWriteInChecked
 
         switchPic.isChecked = isPicChecked
         switchCityName.isChecked = isCityChecked
@@ -70,6 +80,10 @@ class Setting : AppCompatActivity() {
 
         switchCityName?.setOnCheckedChangeListener { _, isChecked ->
             isCityChecked = isChecked
+        }
+
+        switchWriteIn?.setOnCheckedChangeListener { _, isChecked ->
+            isWriteInChecked = isChecked
         }
 
         switchDark?.setOnCheckedChangeListener { _, isChecked ->
@@ -116,6 +130,7 @@ class Setting : AppCompatActivity() {
                 e.putBoolean("switchCityName", isCityChecked)
                 e.putBoolean("darkChecked", isDarkChecked)
                 e.putBoolean("darkChange", false)
+                e.putBoolean("switchWriteIn", isWriteInChecked)
                 e.apply()
                 Toast.makeText(applicationContext,"Preferences successfully saved",Toast.LENGTH_SHORT).show()
             }
